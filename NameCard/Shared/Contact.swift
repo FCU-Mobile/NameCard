@@ -56,4 +56,15 @@ extension Contact {
         website: "buildwithharry.com",
         department: "AI Coding"
     )
+    static let chung_an_sampleData = Contact(
+        firstName: "chung an",
+        lastName: "chen",
+        title: "iOS Developer",
+        organization: "Feng Chia University",
+        email: "D1397030@o365.fcu.com",
+        phone: "+886123456789",
+        address: "Taichung, Taiwan",
+        website: "abc.com",
+        department: "AI Coding"
+    )
 }
