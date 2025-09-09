@@ -10,6 +10,7 @@ import Foundation
 struct Contact {
     let firstName: String
     let lastName: String
+    let middleName: String? // 新增中間名屬性
     let title: String
     let organization: String
     let email: String
@@ -19,19 +20,52 @@ struct Contact {
     let department: String
 
     var fullName: String {
-        "\(firstName) \(lastName)"
+        if let middleName = middleName, !middleName.isEmpty {
+            return "\(firstName) \(middleName) \(lastName)"
+        } else {
+            return "\(firstName) \(lastName)"
+        }
     }
 
     var displayName: String {
         fullName.uppercased()
     }
+    
+    // 為了向下相容，提供不含中間名的初始化器
+    init(firstName: String, lastName: String, title: String, organization: String, email: String, phone: String, address: String, website: String, department: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.middleName = nil
+        self.title = title
+        self.organization = organization
+        self.email = email
+        self.phone = phone
+        self.address = address
+        self.website = website
+        self.department = department
+    }
+    
+    // 包含中間名的初始化器
+    init(firstName: String, middleName: String?, lastName: String, title: String, organization: String, email: String, phone: String, address: String, website: String, department: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.middleName = middleName
+        self.title = title
+        self.organization = organization
+        self.email = email
+        self.phone = phone
+        self.address = address
+        self.website = website
+        self.department = department
+    }
 
     func toVCard() -> String {
+        let fullNameForVCard = middleName != nil ? "\(firstName) \(middleName!) \(lastName)" : "\(firstName) \(lastName)"
         return """
         BEGIN:VCARD
         VERSION:3.0
-        FN:\(fullName)
-        N:\(lastName);\(firstName);;;
+        FN:\(fullNameForVCard)
+        N:\(lastName);\(firstName);\(middleName ?? "");;
         ORG:\(organization)
         TITLE:\(title)
         EMAIL:\(email)

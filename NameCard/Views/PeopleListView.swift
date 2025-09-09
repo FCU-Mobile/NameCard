@@ -57,13 +57,23 @@ struct PersonRowView: View {
     }
 }
 
+
 struct PersonDetailView: View {
     let person: Person
     
     var body: some View {
         Group {
             if let contact = person.contact {
-                HarryView(contact: contact)
+                // 根據人員名稱顯示不同的名片視圖
+                switch person.name {
+                case "Harry":
+                    HarryView(contact: contact)
+                case "Benjamin":
+                    BenjaminView(contact: contact)
+                default:
+                    // 如果是其他學生，使用預設的 HarryView
+                    HarryView(contact: contact)
+                }
             } else {
                 VStack {
                     Image(systemName: "person.fill")
