@@ -8,6 +8,8 @@ struct BusinessNameCardView: View {
     var email: String
     var company: String
     var logo: Image
+    var department: String
+    
 
     // 狀態：是否翻轉
     @State private var isFlipped = false
@@ -99,7 +101,7 @@ struct BusinessNameCardView: View {
                 .fontWeight(.medium)
                 .foregroundColor(.blue)
                 .padding(.top, 8)
-            Text(company) // 這裡動態顯示公司/學校名稱
+            Text(department) // 這裡動態顯示公司/學校名稱
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .padding(.top, 4)

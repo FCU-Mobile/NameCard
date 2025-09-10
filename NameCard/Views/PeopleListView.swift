@@ -74,7 +74,8 @@ struct PersonDetailView: View {
                     phone: contact.phone,
                     email: contact.email,
                     company: contact.organization,
-                    logo: Image(systemName: "building.2.fill") // 或 contact.logo
+                    logo: Image(systemName: "building.2.fill"), // 或 contact.logo
+                    department: contact.department
                 )
             }
             // 其他人（可以根據需求補充）

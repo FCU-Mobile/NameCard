@@ -15,7 +15,8 @@ struct BusinessNameCardView_Previews: PreviewProvider {
             phone: Contact.meiwataData.phone,
             email: Contact.meiwataData.email,
             company: Contact.meiwataData.organization,
-            logo: Image(systemName: "building.2.fill")
+            logo: Image(systemName: "building.2.fill"),
+            department: Contact.meiwataData.department
         )
     }
 }
