@@ -58,9 +58,9 @@ extension Contact {
     )
     
     static let meiwataData = Contact(
-            firstName: "卿如",
-            lastName: "廖",
-            title: "學生",
+            firstName: "Lulu",
+            lastName: "Liao",
+            title: "Student",
             organization: "逢甲大學",
             email: "LL@o365.fcu.edu.tw",
             phone: "0988-123-456",
