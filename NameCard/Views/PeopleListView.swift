@@ -59,28 +59,42 @@ struct PersonRowView: View {
 
 struct PersonDetailView: View {
     let person: Person
-    
+
     var body: some View {
-        Group {
-            if let contact = person.contact {
+        if let contact = person.contact {
+            // 老師 Harry 用原本的 HarryView
+            if person.name == "Harry" {
                 HarryView(contact: contact)
-            } else {
-                VStack {
-                    Image(systemName: "person.fill")
-                        .font(.system(size: 80))
-                        .foregroundStyle(.gray)
-                    Text(person.name)
-                        .font(.largeTitle)
-                        .padding()
-                    Text("No name card available")
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                }
-                .padding()
             }
+            // 學生 Lulu 用 BusinessNameCardView
+            else if person.name == "Lulu" {
+                BusinessNameCardView(
+                    name: person.name, // 或 contact.fullName
+                    title: contact.title,
+                    phone: contact.phone,
+                    email: contact.email,
+                    company: contact.organization,
+                    logo: Image(systemName: "building.2.fill") // 或 contact.logo
+                )
+            }
+            // 其他人（可以根據需求補充）
+            else {
+                HarryView(contact: contact)
+            }
+        } else {
+            VStack {
+                Image(systemName: "person.fill")
+                    .font(.system(size: 80))
+                    .foregroundStyle(.gray)
+                Text(person.name)
+                    .font(.largeTitle)
+                    .padding()
+                Text("No name card available")
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
         }
-        .navigationTitle(person.name)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
