@@ -99,7 +99,7 @@ struct BusinessNameCardView: View {
                 .fontWeight(.medium)
                 .foregroundColor(.blue)
                 .padding(.top, 8)
-            Text("Feng Chia University")
+            Text(company) // 這裡動態顯示公司/學校名稱
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .padding(.top, 4)
@@ -110,18 +110,5 @@ struct BusinessNameCardView: View {
                 .padding(.bottom, 8)
         }
         .padding(24)
-    }
-}
-
-struct BusinessNameCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        BusinessNameCardView(
-            name: "廖卿如",
-            title: "學生",
-            phone: "0988-123-456",
-            email: "LL@o365.fcu.edu.tw",
-            company: "逢甲大學",
-            logo: Image(systemName: "building.2.fill") // 可換成自訂 logo
-        )
     }
 }
