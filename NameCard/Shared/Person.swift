@@ -20,6 +20,7 @@ struct Person: Identifiable {
 
 extension Person {
     static let sampleData: [Person] = [
-        Person(name: "Harry", type: . teacher, contact: Contact.sampleData)
+        Person(name: "Harry", type: . teacher, contact: Contact.sampleData[0]),
+        Person(name: "Ashton", type: . student, contact: Contact.sampleData[1])
     ]
 }
