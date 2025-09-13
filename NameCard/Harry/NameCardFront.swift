@@ -58,3 +58,5 @@ struct NameCardFront: View {
         }
     }
 }
+
+
