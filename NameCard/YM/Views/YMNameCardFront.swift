@@ -56,7 +56,7 @@ struct YMNameCardFront: View {
                         Text(model.note)
                     }
                     .foregroundColor(.white.opacity(0.9))
-                   
+                    
                     
                     Spacer()
                     
@@ -66,7 +66,7 @@ struct YMNameCardFront: View {
                             Spacer()
                             Text(company)
                                 .font(.footnote)
-                                                    .foregroundStyle(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                     }
                 }

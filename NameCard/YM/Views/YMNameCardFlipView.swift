@@ -15,16 +15,16 @@ struct YMNameCardFlipView: View {
             YMNameCardFront(model: model)
                 .opacity(flipped ?  0 : 1 )
                 .rotation3DEffect(.degrees(flipped ? 180 : 0),
-                                                  axis: (x: 0, y: 1, z: 0))
+                                  axis: (x: 0, y: 1, z: 0))
             YMNameCardBack()
-                           .opacity(flipped ? 1 : 0)
-                           .rotation3DEffect(.degrees(flipped ? 0 : -180),
-                                             axis: (x: 0, y: 1, z: 0))
-                   
+                .opacity(flipped ? 1 : 0)
+                .rotation3DEffect(.degrees(flipped ? 0 : -180),
+                                  axis: (x: 0, y: 1, z: 0))
+            
         }
         .rotation3DEffect(.degrees(0), axis: (x: 0, y: 0, z: 0), perspective: 0.8)
-                .animation(.easeInOut(duration: 0.6), value: flipped)
-                .onTapGesture { flipped.toggle() }
+        .animation(.easeInOut(duration: 0.6), value: flipped)
+        .onTapGesture { flipped.toggle() }
     }
 }
 
