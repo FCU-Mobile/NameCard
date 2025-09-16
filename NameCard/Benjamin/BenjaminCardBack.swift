@@ -18,12 +18,12 @@ struct BenjaminCardBack: View {
             VStack(spacing: 10) {
                 Text(contact.organization)
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(.primary)
+                    .foregroundStyle(.primary)
                     .tracking(1)
 
                 Text(contact.department)
                     .font(.system(size: 13, weight: .regular))
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .tracking(0.5)
             }
 
@@ -39,7 +39,7 @@ struct BenjaminCardBack: View {
 
                 Text("掃描加入聯絡人")
                     .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .tracking(0.5)
             }
 

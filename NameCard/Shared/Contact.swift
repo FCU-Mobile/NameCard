@@ -93,7 +93,7 @@ extension Contact {
     
     static let yuehdata = Contact(
         firstName: "Yueh",
-        middleName: "Benjamin",       // 中間名（你可以改成你想要的）
+        middleName: "Benjamin",       // 中間名（可以改成想要的）
         lastName: "Chou",
         title: "Computer Science Student",
         organization: "Feng Chia University",

@@ -16,12 +16,12 @@ struct BenjaminContactRow: View {
         HStack(spacing: 10) {
             Image(systemName: icon)
                 .font(.system(size: 12, weight: .medium))
-                .foregroundColor(color)
+                .foregroundStyle(color)
                 .frame(width: 16)
             
             Text(text)
                 .font(.system(size: 12, weight: .regular))
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
     }
 }

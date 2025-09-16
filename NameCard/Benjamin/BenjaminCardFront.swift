@@ -18,13 +18,13 @@ struct BenjaminCardFront: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(contact.displayName)
                         .font(.system(size: 22, weight: .bold, design: .rounded))
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
                         .tracking(1)
                         .padding(.top, 20)
 
                     Text(contact.title)
                         .font(.system(size: 14, weight: .medium))
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                         .tracking(0.5)
                 }
                 
@@ -41,7 +41,7 @@ struct BenjaminCardFront: View {
                     .overlay(
                         Image(systemName: "person.crop.circle")
                             .font(.system(size: 20))
-                            .foregroundColor(.blue)
+                            .foregroundStyle(.blue)
                     )
             }
             .padding(.horizontal, 25)
@@ -61,12 +61,12 @@ struct BenjaminCardFront: View {
                     HStack(spacing: 8) {
                         Image(systemName: "globe")
                             .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.blue)
+                            .foregroundStyle(.blue)
                             .frame(width: 16)
                         
                         Text(contact.website)
                             .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.blue)
+                            .foregroundStyle(.blue)
                             .underline()
                     }
                 }
