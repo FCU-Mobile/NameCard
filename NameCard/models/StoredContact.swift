@@ -11,4 +11,10 @@ class StoredContact{
     var id: UUID
     var name: String
     var email: String
+    
+    init(name: String, id: UUID, email: String) {
+            self.name = name
+            self.id = id
+            self.email = email
+        }
 }
