@@ -35,12 +35,9 @@ struct YMNameCardBack: View {
             .overlay(
                 VStack(spacing: 12){
                     
-                        Text("Contact me")
+                    Text("Contact me")
                         .font(.footnote)
-                                            .foregroundStyle(.secondary)
-                        
-                    
-            
+                        .foregroundStyle(.secondary)
                     
                     
                     HStack(spacing:20){
@@ -54,7 +51,6 @@ struct YMNameCardBack: View {
                             .scaledToFit()
                             .frame(width: 100, height: 100)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
-                        
                     }
                 }
             )
