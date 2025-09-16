@@ -1,5 +1,3 @@
-// MARK: - AshtonSafariView.swift
-
 import SwiftUI
 import SafariServices
 

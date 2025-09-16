@@ -1,5 +1,3 @@
-// MARK: - AshtonQRCodeView.swift
-
 import SwiftUI
 import CoreImage.CIFilterBuiltins
 

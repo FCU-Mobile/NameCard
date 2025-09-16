@@ -1,5 +1,3 @@
-// MARK: - ContactRowMinimal.swift
-
 import SwiftUI
 
 struct AshtonContactRowMinimal: View {

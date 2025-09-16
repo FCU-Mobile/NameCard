@@ -61,5 +61,5 @@ struct HarryView: View {
 }
 
 #Preview {
-    HarryView(contact: Contact.sampleData[0])
+    HarryView(contact: Contact.sampleData)
 }

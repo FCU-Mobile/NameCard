@@ -1,5 +1,3 @@
-// MARK: - AshtonNameCardFront.swift
-
 import SwiftUI
 
 struct AshtonNameCardFront: View {
@@ -26,7 +24,6 @@ struct AshtonNameCardFront: View {
                 .foregroundStyle(Color.hogwartsGold.opacity(0.8))
                 .padding(.bottom, 10)
             
-//            Divider().overlay(Color.hogwartsGold)
             PulsingDividerView(isAgitated: false)
             
             AshtonContactRowMinimal(iconName: "envelope.fill", text: contact.email)
@@ -42,5 +39,5 @@ struct AshtonNameCardFront: View {
 }
 
 #Preview {
-    AshtonNameCardFront(contact: Contact.sampleData[1])
+    AshtonNameCardFront(contact: Contact.ashtonData)
 }

@@ -44,26 +44,53 @@ struct Contact {
     }
 }
 
+
 extension Contact {
-    static let sampleData:[Contact]=[
-        Contact(firstName: "Harry",
-                lastName: "Ng",
-                title: "iOS Developer",
-                organization: "Feng Chia University",
-                email: "contact@buildwithharry.com",
-                phone: "+886-909-007-162",
-                address: "Taichung, Taiwan",
-                website: "buildwithharry.com",
-                department: "AI Coding"),
-        
-        Contact(firstName: "Ashton",
-                lastName: "Owl",
-                title: "iOS Developer",
-                organization: "Feng Chia University",
-                email: "contact@buildwith1397.com",
-                phone: "+886-909-007-162",
-                address: "Taichung, Taiwan",
-                website: "built1397.com",
-                department: "AI Coding")
-    ]
+    
+    static let sampleData = Contact(
+        firstName: "Harry",
+        lastName: "Ng",
+        title: "iOS Developer",
+        organization: "Feng Chia University",
+        email: "contact@buildwithharry.com",
+        phone: "+886-909-007-162",
+        address: "Taichung, Taiwan",
+        website: "buildwithharry.com",
+        department: "AI Coding"
+    )
+    
+    static let ashtonData = Contact(
+        firstName: "Harry",
+        lastName: "Ng",
+        title: "iOS Developer",
+        organization: "Feng Chia University",
+        email: "contact@buildwithharry.com",
+        phone: "+886-909-007-162",
+        address: "Taichung, Taiwan",
+        website: "buildwithharry.com",
+        department: "AI Coding"
+    )
 }
+
+//extension Contact {
+//    static let sampleData:Contact(firstName: "Harry",
+//                lastName: "Ng",
+//                title: "iOS Developer",
+//                organization: "Feng Chia University",
+//                email: "contact@buildwithharry.com",
+//                phone: "+886-909-007-162",
+//                address: "Taichung, Taiwan",
+//                website: "buildwithharry.com",
+//                department: "AI Coding"),
+//        
+//        Contact(firstName: "Ashton",
+//                lastName: "Owl",
+//                title: "iOS Developer",
+//                organization: "Feng Chia University",
+//                email: "contact@buildwith1397.com",
+//                phone: "+886-909-007-162",
+//                address: "Taichung, Taiwan",
+//                website: "built1397.com",
+//                department: "AI Coding")
+//    ]
+//}

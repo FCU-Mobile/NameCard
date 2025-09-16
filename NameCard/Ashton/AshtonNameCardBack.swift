@@ -1,5 +1,3 @@
-// MARK: - AshtonNameCardBack.swift
-
 import SwiftUI
 
 struct AshtonNameCardBack: View {
@@ -26,5 +24,5 @@ struct AshtonNameCardBack: View {
 }
 
 #Preview {
-    AshtonNameCardBack(contact: Contact.sampleData[1])
+    AshtonNameCardBack(contact: Contact.ashtonData)
 }

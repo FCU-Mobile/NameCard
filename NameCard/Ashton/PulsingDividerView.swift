@@ -1,5 +1,3 @@
-// MARK: - PulsingDividerView.swift
-
 import SwiftUI
 
 struct PulsingDividerView: View {

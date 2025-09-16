@@ -1,5 +1,3 @@
-// MARK: - AshtonView.swift
-
 import SwiftUI
 
 struct AshtonView: View {
@@ -91,5 +89,5 @@ struct AshtonView: View {
 }
 
 #Preview {
-    AshtonView(contact: Contact.sampleData[1])
+    AshtonView(contact: Contact.ashtonData)
 }

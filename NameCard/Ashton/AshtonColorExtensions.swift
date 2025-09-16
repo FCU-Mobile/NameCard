@@ -1,4 +1,3 @@
-// MARK: - AshtonColorExtensions.swift
 import SwiftUI
 
 extension Color {
