@@ -84,7 +84,7 @@ struct NameCardCardView: View {
         role: "數學老師／活動企劃",
         email: "D1397193@o365.fcu.edu.tw",
         phone: "0981763802",
-        location: "ShinChu, Taiwan"
+        location: "HsinChu, Taiwan"
     )
     NameCardCardView(cardColor: .pink, info: me)
 }
