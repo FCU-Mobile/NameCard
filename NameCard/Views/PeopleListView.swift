@@ -42,8 +42,9 @@ struct PeopleListView: View {
     }
 }
 struct ContactsListView: View{
-    var body: some View{
+    var body: some View {
         Text("Contact")
+    }
 }
     
     
