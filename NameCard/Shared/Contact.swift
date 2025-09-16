@@ -60,14 +60,14 @@ extension Contact {
     )
     
     static let ashtonData = Contact(
-        firstName: "Harry",
-        lastName: "Ng",
+        firstName: "Ashton",
+        lastName: "Owl",
         title: "iOS Developer",
         organization: "Feng Chia University",
-        email: "contact@buildwithharry.com",
+        email: "contact@buildwithashton.com",
         phone: "+886-909-007-162",
         address: "Taichung, Taiwan",
-        website: "buildwithharry.com",
+        website: "buildwithashton.com",
         department: "AI Coding"
     )
 }
