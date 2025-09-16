@@ -1,5 +1,6 @@
 import SwiftUI
 
+
 struct PeopleListView: View {
     let people = Person.sampleData
     
@@ -29,11 +30,23 @@ struct PeopleListView: View {
                         }
                     }
                 }
+                Section("Contacts"){
+                    NavigationLink(destination: ContactsListView()){
+                        Text("Family")
+                    }
+                    Text("Work")
+                }
             }
             .navigationTitle("Directory")
         }
     }
 }
+struct ContactsListView: View{
+    var body: some View{
+        Text("Contact")
+}
+    
+    
 
 struct PersonRowView: View {
     let person: Person
