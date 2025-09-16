@@ -90,4 +90,17 @@ extension Contact {
         website: "buildwithharry.com",
         department: "AI Coding"
     )
+    
+    static let yuehdata = Contact(
+        firstName: "Yueh",
+        middleName: "Benjamin",       // 中間名（你可以改成你想要的）
+        lastName: "Chou",
+        title: "Computer Science Student",
+        organization: "Feng Chia University",
+        email: "shuoz4796@gmail.com",
+        phone: "+886-988-874-574",
+        address: "Taichung, Taiwan",
+        website: "https://github.com/YuehBenjamin",
+        department: "資訊工程學系"
+    )
 }
