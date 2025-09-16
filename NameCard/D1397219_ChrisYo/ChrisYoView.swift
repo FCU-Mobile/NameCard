@@ -23,15 +23,14 @@ struct ChrisYoView: View {
                 Text("Chris Yo")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .foregroundColor(.primary)
+                    .foregroundStyle(.primary)
                 
                 // 職位
                 Text("Software Engineer")
                     .font(.headline)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             .padding()
-//            .background(Color(.systemBackground))
             .cornerRadius(20)
             .shadow(radius: 10)
             
@@ -42,7 +41,6 @@ struct ChrisYoView: View {
                 InfoRow(iconName: "globe", text: "https://www.fcu.edu.tw/")
             }
             .padding()
-//            .background(Color(.systemGray5))
             .cornerRadius(10)
         }
         .padding()
@@ -57,16 +55,10 @@ struct InfoRow: View {
     var body: some View {
         HStack(spacing: 15) {
             Image(systemName: iconName)
-                .foregroundColor(.gray)
+                .foregroundStyle(.gray)
             Text(text)
-                .foregroundColor(.primary)
+                .foregroundStyle(.primary)
         }
-    }
-}
-
-struct ChrisYoView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChrisYoView()
     }
 }
 
