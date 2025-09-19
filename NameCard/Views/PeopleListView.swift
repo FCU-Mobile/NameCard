@@ -65,19 +65,23 @@ struct PersonDetailView: View {
         Group {
             
             if let contact = person.contact {
-                
-                switch person.name {
-                    
-                case "Harry":
+                // Route to appropriate name card view based on person's name
+                switch person.name.lowercased() {
+                case "harry":
                     HarryView(contact: contact)
-                    
+                case "roger":
+                    RogerView(contact: contact)
+                case "Zoe":
+                    ZoeView(contact: contact)
                 case "Ashton":
                     AshtonView(contact: contact)
-                    
                 default:
-                    EmptyView()
+                    if let nameCard = person.nameCard {
+                        AnyView(nameCard)
+                    } else {
+                        HarryView(contact: contact) // Default fallback
+                    }
                 }
-                
             } else {
                 VStack {
                     Image(systemName: "person.fill")

@@ -69,5 +69,17 @@ extension Contact {
         address: "Taichung, Taiwan",
         website: "buildwithashton.com",
         department: "AI Coding"
+      
+    static let rogerSampleData = Contact(
+        firstName: "Roger",
+        lastName: "Chen",
+        title: "Senior Smooth Replies Manager",
+        organization: "ChatGPT University",
+        email: "roger@liftwithroger.com",
+        phone: "+1-555-123-4567",
+        address: "San Francisco, CA",
+        website: "elkmr-code.github.io/Tutoring-Resume",
+        department: "Mom's Basement"
+
     )
 }
