@@ -44,7 +44,9 @@ struct Contact {
     }
 }
 
+
 extension Contact {
+    
     static let sampleData = Contact(
         firstName: "Harry",
         lastName: "Ng",
@@ -57,6 +59,17 @@ extension Contact {
         department: "AI Coding"
     )
     
+    static let ashtonData = Contact(
+        firstName: "Ashton",
+        lastName: "Owl",
+        title: "iOS Developer",
+        organization: "Feng Chia University",
+        email: "contact@buildwithashton.com",
+        phone: "+886-909-007-162",
+        address: "Taichung, Taiwan",
+        website: "buildwithashton.com",
+        department: "AI Coding"
+      
     static let rogerSampleData = Contact(
         firstName: "Roger",
         lastName: "Chen",
@@ -67,5 +80,6 @@ extension Contact {
         address: "San Francisco, CA",
         website: "elkmr-code.github.io/Tutoring-Resume",
         department: "Mom's Basement"
+
     )
 }

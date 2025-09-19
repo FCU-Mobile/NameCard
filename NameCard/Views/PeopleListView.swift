@@ -61,7 +61,9 @@ struct PersonDetailView: View {
     let person: Person
     
     var body: some View {
+        
         Group {
+            
             if let contact = person.contact {
                 // Route to appropriate name card view based on person's name
                 switch person.name.lowercased() {
@@ -70,7 +72,9 @@ struct PersonDetailView: View {
                 case "roger":
                     RogerView(contact: contact)
                 case "Zoe":
-                    ZoeView(contact: contact)  
+                    ZoeView(contact: contact)
+                case "Ashton":
+                    AshtonView(contact: contact)
                 default:
                     if let nameCard = person.nameCard {
                         AnyView(nameCard)
