@@ -25,7 +25,8 @@ extension Person {
     static let sampleData: [Person] = [
         Person(name: "Harry", type: .teacher, contact: Contact.sampleData),
         Person(name: "Zoe", type: .student, contact: Contact.zoeStudent),
+        Person(name: "FW", type: .student, contact: Contact.FwStudent, nameCard: FwView(contact: Contact.FwStudent)),
         Person(name: "Leo", type: .student, contact: LeoView.contact, nameCard: LeoView()),
-        Person(name: "Roger", type: .teacher, contact: Contact.rogerSampleData)
+        Person(name: "Roger", type: .student, contact: Contact.rogerSampleData)
     ]
 }
