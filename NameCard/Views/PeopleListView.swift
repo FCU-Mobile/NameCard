@@ -13,7 +13,9 @@ struct PeopleListView: View {
         "Friends": .green,
         "Medical": .pink,
         "Services": .purple,
-        "Vendors": .gray
+        "Vendors": .purple,
+        "Work":.blue,
+        "Uncategroized":.gray
     ]
     
     // 動態產生分類陣列，並計算每個分類下有多少聯絡人
