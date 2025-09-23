@@ -1,33 +1,31 @@
 import SwiftUI
+import SwiftData
 
 // 主要聯絡人列表頁面
 struct PeopleListView: View {
-    // 假資料來源，實際應用可改為資料庫或 API
-    let people = Person.sampleData
+    let ppeople = Person.sampleData
+    @Environment(\.modelContext)private var modelContext
+    @Query private var categories:[ContactCategory]    
+    @Query private var allContacts:[StoredContact]
     
-    // 聯絡人分類顏色對應表
-    let categoryColors: [String: Color] = [
-        "Clients": .red,
-        "Education": .blue,
-        "Family": .orange,
-        "Friends": .green,
-        "Medical": .pink,
-        "Services": .purple,
-        "Vendors": .purple,
-        "Work":.blue,
-        "Uncategroized":.gray
-    ]
+    // 由不可變改為可變，讓新增的人能插入列表
+    @State private var people: [Person] = Person.sampleData
+    
+    // 分類資料來源（可動態新增）
+    @StateObject private var categoryStore = CategoryStore()
+    
+    // 編輯中的聯絡人（用於呈現編輯表單）
+    @State private var editingPerson: Person? = nil
     
     // 動態產生分類陣列，並計算每個分類下有多少聯絡人
     var contactsCategories: [ContactCategoryUI] {
         let categories = people.compactMap { $0.contactCategory }
-        let unique = Set(categories)
-        var result: [ContactCategoryUI] = []
-        for name in categoryColors.keys.sorted() {
-            let count = categories.filter { $0 == name }.count
-            result.append(ContactCategoryUI(name: name, color: categoryColors[name] ?? .gray, count: count))
-        }
-        return result
+        return categoryStore.categories
+            .sorted { $0.name < $1.name }
+            .map { cat in
+                let count = categories.filter { $0 == cat.name }.count
+                return ContactCategoryUI(name: cat.name, color: cat.color, count: count)
+            }
     }
     
     // 依照 type 過濾並排序老師
@@ -44,8 +42,8 @@ struct PeopleListView: View {
     @State private var showContactMenu = false
     // 控制顯示新增聯絡人表單
     @State private var showAddContactSheet = false
-    // 控制顯示新增分類的提示
-    @State private var showAddCategoryAlert = false
+    // 控制顯示新增分類表單
+    @State private var showAddCategorySheet = false
     
     var body: some View {
         NavigationStack {
@@ -56,6 +54,20 @@ struct PeopleListView: View {
                         NavigationLink(destination: PersonDetailView(person: person)) {
                             PersonRowView(person: person)
                         }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                            Button(role: .destructive) {
+                                delete(person)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                            
+                            Button {
+                                editingPerson = person
+                            } label: {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            .tint(.orange)
+                        }
                     }
                 }
                 
@@ -64,6 +76,20 @@ struct PeopleListView: View {
                     ForEach(studentsSorted) { person in
                         NavigationLink(destination: PersonDetailView(person: person)) {
                             PersonRowView(person: person)
+                        }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                            Button(role: .destructive) {
+                                delete(person)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                            
+                            Button {
+                                editingPerson = person
+                            } label: {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            .tint(.orange)
                         }
                     }
                 }
@@ -96,7 +122,7 @@ struct PeopleListView: View {
                     Label("Add Contact", systemImage: "person.badge.plus")
                 }
                 Button {
-                    showAddCategoryAlert = true
+                    showAddCategorySheet = true
                 } label: {
                     Label("Add Category", systemImage: "folder.badge.plus")
                 }
@@ -104,13 +130,37 @@ struct PeopleListView: View {
             }
             // 新增聯絡人表單
             .sheet(isPresented: $showAddContactSheet) {
-                NewContactView(categories: categoryColors.keys.sorted())
+                NewContactView(
+                    categories: categoryStore.categories.map { $0.name }
+                ) { newPerson in
+                    // 接收表單回傳的新聯絡人並加入列表
+                    people.append(newPerson)
+                }
             }
-            // 新增分類提示
-            .alert("新增分類功能尚未實作", isPresented: $showAddCategoryAlert) {
-                Button("OK", role: .cancel) { }
+            // 編輯聯絡人表單（使用 item 版，當 editingPerson 設值時彈出）
+            .sheet(item: $editingPerson) { person in
+                NewContactView(
+                    existing: person,
+                    categories: categoryStore.categories.map { $0.name }
+                ) { updated in
+                    if let idx = people.firstIndex(where: { $0.id == updated.id }) {
+                        people[idx] = updated
+                    }
+                }
+            }
+            // 新增分類表單
+            .sheet(isPresented: $showAddCategorySheet) {
+                NewCategoryView(
+                    existingNames: categoryStore.categories.map { $0.name }
+                ) { name, color in
+                    categoryStore.addCategory(name: name, color: color)
+                }
             }
         }
+    }
+    
+    private func delete(_ person: Person) {
+        people.removeAll { $0.id == person.id }
     }
 }
 

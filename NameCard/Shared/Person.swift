@@ -7,14 +7,22 @@ enum PersonType: String, CaseIterable {
 }
 
 struct Person: Identifiable {
-    let id = UUID()
+    let id: UUID
     let name: String
     let type: PersonType
     let contact: Contact?
     let nameCard: (any View)?
     let contactCategory: String? // 新增聯絡人分類屬性
     
-    init(name: String, type: PersonType, contact: Contact? = nil, nameCard: (any View)? = nil, contactCategory: String? = nil) {
+    init(
+        id: UUID = UUID(),
+        name: String,
+        type: PersonType,
+        contact: Contact? = nil,
+        nameCard: (any View)? = nil,
+        contactCategory: String? = nil
+    ) {
+        self.id = id
         self.name = name
         self.type = type
         self.contact = contact
