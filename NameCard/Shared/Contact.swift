@@ -6,17 +6,19 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Contact {
-    let firstName: String
-    let lastName: String
-    let title: String
-    let organization: String
-    let email: String
-    let phone: String
-    let address: String
-    let website: String
-    let department: String
+@Model
+class Contact {
+    var firstName: String
+    var lastName: String
+    var title: String
+    var organization: String
+    var email: String
+    var phone: String
+    var address: String
+    var website: String
+    var department: String
 
     var fullName: String {
         "\(firstName) \(lastName)"
@@ -24,6 +26,18 @@ struct Contact {
 
     var displayName: String {
         fullName.uppercased()
+    }
+    
+    init(firstName: String, lastName: String, title: String, organization: String, email: String, phone: String, address: String, website: String, department: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.title = title
+        self.organization = organization
+        self.email = email
+        self.phone = phone
+        self.address = address
+        self.website = website
+        self.department = department
     }
 
     func toVCard() -> String {
@@ -55,5 +69,17 @@ extension Contact {
         address: "Taichung, Taiwan",
         website: "buildwithharry.com",
         department: "AI Coding"
+    )
+    
+    static let chrisYoData = Contact(
+        firstName: "Chris",
+        lastName: "Yo",
+        title: "Software Engineer",
+        organization: "Feng Chia University",
+        email: "D1397129@fcu.edu.tw",
+        phone: "04-2451-7250",
+        address: "Taichung, Taiwan",
+        website: "https://www.fcu.edu.tw/",
+        department: "Computer Science"
     )
 }
