@@ -56,16 +56,5 @@ extension Contact {
         website: "buildwithharry.com",
         department: "AI Coding"
     )
-    
-    static let meiwataData = Contact(
-            firstName: "Lulu",
-            lastName: "Liao",
-            title: "Student",
-            organization: "逢甲大學",
-            email: "LL@o365.fcu.edu.tw",
-            phone: "0988-123-456",
-            address: "台中市西屯區文華路100號",
-            website: "https://www.fcu.edu.tw/",
-            department: "資訊工程學系"
-        )
+
 }
