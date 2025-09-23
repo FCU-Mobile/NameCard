@@ -1,10 +1,3 @@
-//
-//  StoredContactDetailView.swift
-//  NameCard
-//
-//  Created by 訪客使用者 on 2025/9/23.
-//
-
 import SwiftUI
 import SwiftData
 

@@ -73,27 +73,17 @@ struct PeopleListView: View {
                             }
                         }
                     }
-                } header: {
-                    HStack {
-                        Text("Contacts")
-                        Spacer()
-                        Menu {
-                            Button {
-                                showingAddContact = true
-                            } label: {
-                                Label("Add Contact", systemImage: "person.badge.plus")
-                            }
 
-                            Button {
-                                showingAddCategory = true
-                            } label: {
-                                Label("Add Category", systemImage: "folder.badge.plus")
-                            }
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
-                                .foregroundStyle(.blue)
-                        }
+                    if categoriesSorted.isEmpty && uncategorizedContacts.isEmpty {
+                        ContentUnavailableView(
+                            "No Contacts",
+                            systemImage: "person.slash",
+                            description: Text("Tap + to add a contact or category.")
+                        )
+                        .listRowBackground(Color.clear)
                     }
+                } header: {
+                    Text("Contacts")
                 }
             }
             .navigationTitle("Directory")
@@ -123,6 +113,26 @@ struct PeopleListView: View {
                     }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button {
+                            showingAddContact = true
+                        } label: {
+                            Label("Add Contact", systemImage: "person.badge.plus")
+                        }
+
+                        Button {
+                            showingAddCategory = true
+                        } label: {
+                            Label("Add Category", systemImage: "folder.badge.plus")
+                        }
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundStyle(.blue)
+                    }
+                }
+            }
         }
     }
 
@@ -134,7 +144,8 @@ struct PeopleListView: View {
     }
 
     private func deleteCategoryAndMoveContacts(_ category: ContactCategory) {
-        // Delete the category
+        // 因為在 ContactCategory 上把 deleteRule 設為 .nullify，
+        // 刪除分類後，相關聯絡人的 category 會自動變成 nil（Uncategorized）
         modelContext.delete(category)
     }
 }
@@ -271,4 +282,5 @@ struct UncategorizedContactsView: View {
 
 #Preview {
     PeopleListView()
+        .modelContainer(for: [ContactCategory.self, StoredContact.self], inMemory: true)
 }
