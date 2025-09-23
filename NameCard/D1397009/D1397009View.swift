@@ -14,12 +14,10 @@ struct D1397009View: View {
             if let phone = phoneNumber {
                 Text("Phone: \(phone)")
                     .font(.headline)
-                    .accentColor(.secondary)
             }
             
             Text("Email: \(email)")
                 .font(.headline)
-                .accentColor(.secondary) 
         }
         .padding()
         .background(Color(.systemGray6))
