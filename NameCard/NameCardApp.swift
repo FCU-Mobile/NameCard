@@ -11,7 +11,7 @@ import SwiftUI
 struct NameCardApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            D1397009PeopleListView()
         }
     }
 }
