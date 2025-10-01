@@ -182,8 +182,8 @@ struct PersonDetailView: View {
                     HarryView(contact: contact)
                 case "roger":
                     RogerView(contact: contact)
-                case "Zoe":
-                    ZoeView(contact: contact)  
+                case "zoe":
+                    ZoeView(contact: contact)
                 default:
                     if let nameCard = person.nameCard {
                         AnyView(nameCard)
